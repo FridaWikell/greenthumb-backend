@@ -1,10 +1,10 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from "../assets/logo.png";
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <Navbar expand="md" fixed="top">
+    <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <Navbar.Brand>
           <img src="https://res.cloudinary.com/dihkuau3v/image/upload/v1712823586/greenthumb-logo_heh5u7.svg" alt="logo" height="45" />
