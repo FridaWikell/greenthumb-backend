@@ -37,10 +37,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = [
-    '8000-fridawikell-greenthumbb-mqfsmpi9xz9.ws-eu110.gitpod.io',
-    os.environ.get('ALLOWED_HOST'),
-    'localhost',]
+ALLOWED_HOSTS = ['8000-fridawikell-greenthumbb-mqfsmpi9xz9.ws-eu110.gitpod.io', 'greenthumb-back-4bd145d8f205.herokuapp.com']
 
 
 # Application definition
@@ -109,9 +106,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CLIENT_ORIGIN')
-]
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.gitpod\.io$",
+    ]
 
 CORS_ALLOW_CREDENTIALS = True
 
