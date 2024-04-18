@@ -13,6 +13,7 @@ class AnswerSerializer(serializers.ModelSerializer):
         fields = ['id', 'text', 'created_at']
 
 class QuestionSerializer(serializers.ModelSerializer):
+    owner = serializers.PrimaryKeyRelatedField(read_only=True)
     answers = AnswerSerializer(many=True, read_only=False, required=False)
 
     class Meta:
