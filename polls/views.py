@@ -1,16 +1,24 @@
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from .models import Question, Answer, Vote
 from .serializers import QuestionSerializer, AnswerSerializer, VoteSerializer
+from greenthumb.permissions import IsOwnerOrReadOnly
+
 
 
 # Questions
 class QuestionList(generics.ListCreateAPIView):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+    permission_classes = [IsAuthenticated]  # Ensure users are authenticated to create questions
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)  
 
 class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+    permission_classes = [IsOwnerOrReadOnly]  # Custom permission to check the owner
 
 # Answers
 class AnswerList(generics.ListCreateAPIView):

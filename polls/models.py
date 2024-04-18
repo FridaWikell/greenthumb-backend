@@ -6,6 +6,9 @@ class Question(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['created_at']  # Orders by the creation time by default
+
     def __str__(self):
         return f"Question {self.id} by {self.owner}"
 
