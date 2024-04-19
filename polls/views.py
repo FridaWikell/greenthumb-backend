@@ -36,14 +36,12 @@ class VoteList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user = self.request.user
-        question = serializer.validated_data['answer'].question
+        question = serializer.validated_data['answer'].question  # Ensure this exists
 
         if Vote.objects.filter(answer__question=question, voter=user).exists():
-            # This will cause DRF to handle the exception and return a proper 400 response
             raise ValidationError({"error": "You have already voted on this question"})
-        
-        # Proceed to save the vote if the above condition is not met
-        serializer.save(voter=user)
+
+        serializer.save(voter=user, question=question) 
 
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vote.objects.all()

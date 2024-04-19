@@ -6,19 +6,20 @@ class VoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vote
         fields = ['id', 'answer', 'voter', 'created_at']
-        read_only_fields = ('voter',)  # Ensuring 'voter' is not writable directly
+        read_only_fields = ('voter',)
 
     def validate(self, data):
-        # Get the question from the answer
-        question = data['answer'].question
-        # Get the user from the context
+        # More defensive approach with checks
+        answer = data.get('answer')
+        if not answer:
+            raise serializers.ValidationError({"answer": "This field is required."})
+        question = getattr(answer, 'question', None)
+        if not question:
+            raise serializers.ValidationError({"answer": "Invalid answer or question data."})
         voter = self.context['request'].user
 
-        # Check if a vote by this user for this question already exists
         if Vote.objects.filter(answer__question=question, voter=voter).exists():
-            raise serializers.ValidationError({
-                "non_field_errors": ["You have already voted on this question."]
-            })
+            raise serializers.ValidationError({"non_field_errors": ["You have already voted on this question."]})
 
         return data
 
