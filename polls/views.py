@@ -35,18 +35,15 @@ class VoteList(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
-        # Retrieve the current user
         user = self.request.user
-        # Retrieve the question associated with the answer to ensure user hasn't voted already
         question = serializer.validated_data['answer'].question
 
-        # Check if the user has already voted on this question
         if Vote.objects.filter(answer__question=question, voter=user).exists():
-            # If the user has already voted, return an error response
-            raise serializers.ValidationError({"error": "You have already voted on this question"})
-        else:
-            # If not, save the vote with the current user set as the voter
-            serializer.save(voter=user)
+            # This will cause DRF to handle the exception and return a proper 400 response
+            raise ValidationError({"error": "You have already voted on this question"})
+        
+        # Proceed to save the vote if the above condition is not met
+        serializer.save(voter=user)
 
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vote.objects.all()
