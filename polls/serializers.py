@@ -31,11 +31,12 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     owner = serializers.PrimaryKeyRelatedField(read_only=True)
+    owner_username = serializers.ReadOnlyField(source='owner.username')
     answers = AnswerSerializer(many=True, read_only=False, required=False)
 
     class Meta:
         model = Question
-        fields = ['id', 'owner', 'text', 'created_at', 'answers']
+        fields = ['id', 'owner', 'owner_username', 'text', 'created_at', 'answers']
 
     def create(self, validated_data):
         answers_data = validated_data.pop('answers', [])
