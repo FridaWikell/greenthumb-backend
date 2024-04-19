@@ -3,6 +3,8 @@ from .models import Question, Answer, Vote
 
 
 class VoteSerializer(serializers.ModelSerializer):
+    voter = serializers.ReadOnlyField(source='voter.username')  # Assuming you want to display the username
+
     class Meta:
         model = Vote
         fields = ['id', 'answer', 'voter', 'created_at']
