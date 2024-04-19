@@ -3,11 +3,18 @@ from .models import Question, Answer, Vote
 
 
 class VoteSerializer(serializers.ModelSerializer):
-    voter = serializers.ReadOnlyField(source='voter.username')  # Assuming you want to display the username
-
     class Meta:
         model = Vote
         fields = ['id', 'answer', 'voter', 'created_at']
+
+    def validate(self, data):
+        # Check if this user has already voted on this question
+        question = data['answer'].question
+        voter = self.context['request'].user
+        if Vote.objects.filter(answer__question=question, voter=voter).exists():
+            raise serializers.ValidationError("You have already voted on this question.")
+        return data
+
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
