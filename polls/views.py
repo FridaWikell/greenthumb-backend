@@ -5,7 +5,6 @@ from .serializers import QuestionSerializer, AnswerSerializer, VoteSerializer
 from greenthumb.permissions import IsOwnerOrReadOnly
 
 
-
 # Questions
 class QuestionList(generics.ListCreateAPIView):
     queryset = Question.objects.all()
@@ -33,6 +32,10 @@ class AnswerDetail(generics.RetrieveUpdateDestroyAPIView):
 class VoteList(generics.ListCreateAPIView):
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(voter=self.request.user)
 
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vote.objects.all()
