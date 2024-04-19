@@ -25,18 +25,21 @@ class VoteSerializer(serializers.ModelSerializer):
 
 
 class AnswerSerializer(serializers.ModelSerializer):
+    votes_count = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Answer
-        fields = ['id', 'text', 'created_at']
+        fields = ['id', 'text', 'created_at', 'votes_count']
 
 class QuestionSerializer(serializers.ModelSerializer):
     owner = serializers.PrimaryKeyRelatedField(read_only=True)
     owner_username = serializers.ReadOnlyField(source='owner.username')
     answers = AnswerSerializer(many=True, read_only=False, required=False)
+    votes_count = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Question
-        fields = ['id', 'owner', 'owner_username', 'text', 'created_at', 'answers']
+        fields = ['id', 'owner', 'owner_username', 'text', 'created_at', 'answers', 'votes_count']
 
     def create(self, validated_data):
         answers_data = validated_data.pop('answers', [])

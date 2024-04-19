@@ -7,7 +7,8 @@ from greenthumb.permissions import IsOwnerOrReadOnly
 
 # Questions
 class QuestionList(generics.ListCreateAPIView):
-    queryset = Question.objects.all()
+    queryset = Question.objects.annotate(
+        votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = QuestionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]  # Ensure users are authenticated to create questions
     filter_backends = [filters.SearchFilter]
@@ -20,17 +21,20 @@ class QuestionList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)  
 
 class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Question.objects.all()
+    queryset = Question.objects.annotate(
+        votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = QuestionSerializer
     permission_classes = [IsOwnerOrReadOnly]  # Custom permission to check the owner
 
 # Answers
 class AnswerList(generics.ListCreateAPIView):
-    queryset = Answer.objects.all()
+    queryset = Answer.objects.annotate(
+        votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = AnswerSerializer
 
 class AnswerDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Answer.objects.all()
+    queryset = Answer.objects.annotate(
+        votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = AnswerSerializer
 
 # Votes
@@ -41,12 +45,13 @@ class VoteList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user = self.request.user
-        question = serializer.validated_data['answer'].question  # Ensure this exists
+        answer = serializer.validated_data['answer']
+        question = answer.question
 
         if Vote.objects.filter(answer__question=question, voter=user).exists():
             raise ValidationError({"error": "You have already voted on this question"})
 
-        serializer.save(voter=user, question=question) 
+        serializer.save(voter=user)
 
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vote.objects.all()
