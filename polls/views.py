@@ -30,12 +30,14 @@ class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
 # Answers
 class AnswerList(generics.ListCreateAPIView):
     queryset = Answer.objects.annotate(
-        votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
+        votes_count=Count('votes', distinct=True)  # Correctly count votes directly related to answers
+    ).order_by('-created_at')
     serializer_class = AnswerSerializer
 
 class AnswerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Answer.objects.annotate(
-        votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
+        votes_count=Count('votes', distinct=True)  # Correctly count votes directly related to answers
+    ).order_by('-created_at')
     serializer_class = AnswerSerializer
 
 # Votes
