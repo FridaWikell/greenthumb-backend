@@ -1,6 +1,6 @@
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import ValidationError
 from .models import Question, Answer, Vote
 from .serializers import QuestionSerializer, AnswerSerializer, VoteSerializer
 from greenthumb.permissions import IsOwnerOrReadOnly
