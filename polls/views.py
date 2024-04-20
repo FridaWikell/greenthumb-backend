@@ -29,15 +29,11 @@ class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
 
 # Answers
 class AnswerList(generics.ListCreateAPIView):
-    queryset = Answer.objects.annotate(
-        votes_count=Count('votes', distinct=True)  # Correctly count votes directly related to answers
-    ).order_by('-created_at')
+    queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True))
     serializer_class = AnswerSerializer
 
 class AnswerDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Answer.objects.annotate(
-        votes_count=Count('votes', distinct=True)  # Correctly count votes directly related to answers
-    ).order_by('-created_at')
+    queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True))
     serializer_class = AnswerSerializer
 
 # Votes
@@ -54,7 +50,7 @@ class VoteList(generics.ListCreateAPIView):
         if Vote.objects.filter(answer__question=question, voter=user).exists():
             raise ValidationError({"error": "You have already voted on this question"})
 
-        serializer.save(voter=user)
+        serializer.save(voter=user, question=question)
 
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vote.objects.all()
