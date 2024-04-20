@@ -23,11 +23,16 @@ class VoteSerializer(serializers.ModelSerializer):
 
 
 class AnswerSerializer(serializers.ModelSerializer):
-    votes_count = serializers.IntegerField(read_only=True)
+    #votes_count = serializers.IntegerField(read_only=True)
+    votes_count = serializers.SerializerMethodField()
+
+    def get_votes_count(self, obj):
+        return obj.votes.distinct().count()
 
     class Meta:
         model = Answer
         fields = ['id', 'text', 'created_at', 'votes_count']
+
 
 class QuestionSerializer(serializers.ModelSerializer):
     owner = serializers.PrimaryKeyRelatedField(read_only=True)

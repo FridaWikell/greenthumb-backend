@@ -22,6 +22,14 @@ class QuestionList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)  
 
 class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
+    #serializer_class = QuestionSerializer
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
+    #def get_queryset(self):
+    #    return Question.objects.prefetch_related(
+    #        Prefetch('answers', queryset=Answer.objects.annotate(vote_count=Count('votes')))
+    #    )
+
     queryset = Question.objects.annotate(
         votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = QuestionSerializer
