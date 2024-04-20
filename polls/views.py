@@ -48,8 +48,8 @@ class VoteList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user = self.request.user
-        answer = serializer.validated_data['answer']
-        question = answer.question
+        # Retrieve the question associated with the answer to ensure user hasn't voted already
+        question = serializer.validated_data['answer'].question
 
         if Vote.objects.filter(answer__question=question, voter=user).exists():
             raise ValidationError({"error": "You have already voted on this question"})
