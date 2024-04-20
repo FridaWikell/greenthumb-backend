@@ -28,6 +28,7 @@ class Vote(models.Model):
 
     class Meta:
         unique_together = ('question', 'voter')  # Enforce one vote per question per user
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"Vote by {self.voter} for {self.answer}"

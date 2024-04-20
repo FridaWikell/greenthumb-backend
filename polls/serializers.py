@@ -10,17 +10,10 @@ class VoteSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         # More defensive approach with checks
-        answer = data.get('answer')
-        if not answer:
-            raise serializers.ValidationError({"answer": "This field is required."})
-        question = getattr(answer, 'question', None)
-        if not question:
-            raise serializers.ValidationError({"answer": "Invalid answer or question data."})
+        question = data['answer'].question
         voter = self.context['request'].user
-
         if Vote.objects.filter(answer__question=question, voter=voter).exists():
-            raise serializers.ValidationError({"non_field_errors": ["You have already voted on this question."]})
-
+            raise serializers.ValidationError("You have already voted on this question.")
         return data
 
 
