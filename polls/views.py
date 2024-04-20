@@ -52,6 +52,11 @@ class VoteList(generics.ListCreateAPIView):
 
         serializer.save(voter=user, question=question)
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
+
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer

@@ -6,7 +6,7 @@ class VoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vote
         fields = ['id', 'answer', 'voter', 'created_at']
-        # read_only_fields = ('voter',)
+        read_only_fields = ('voter',)
 
     def validate(self, data):
         # More defensive approach with checks
@@ -15,6 +15,11 @@ class VoteSerializer(serializers.ModelSerializer):
         if Vote.objects.filter(answer__question=question, voter=voter).exists():
             raise serializers.ValidationError("You have already voted on this question.")
         return data
+
+    def save(self, **kwargs):
+        # Explicitly set the voter to the user from the request context
+        kwargs['voter'] = self.context['request'].user
+        return super().save(**kwargs)
 
 
 class AnswerSerializer(serializers.ModelSerializer):
