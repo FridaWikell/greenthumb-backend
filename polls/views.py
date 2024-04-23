@@ -7,6 +7,11 @@ from greenthumb.permissions import IsOwnerOrReadOnly
 
 
 class QuestionList(generics.ListCreateAPIView):
+    """
+    Provides a list of all questions and allows authenticated users to create new questions.
+    Questions are listed with a count of votes for their answers, ordered by creation date in descending order.
+    The view also supports search functionality on question text and owner username.
+    """
     queryset = Question.objects.annotate(
         votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = QuestionSerializer
@@ -22,6 +27,10 @@ class QuestionList(generics.ListCreateAPIView):
 
 
 class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Provides detailed view for a specific question, including capabilities to update or delete.
+    Only the owner of the question has the permissions to update or delete it.
+    """
     queryset = Question.objects.annotate(
         votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = QuestionSerializer
@@ -29,16 +38,28 @@ class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class AnswerList(generics.ListCreateAPIView):
+    """
+    Lists all answers for questions, annotated with a count of votes for each answer,
+    ordered by their creation date in descending order.
+    """
     queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True)).order_by('-created_at')
     serializer_class = AnswerSerializer
 
 
 class AnswerDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Provides a detailed view for a specific answer, allowing retrieval, update, and deletion operations.
+    Updates and deletions are restricted to the owner of the answer.
+    """
     queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True))
     serializer_class = AnswerSerializer
 
 
 class VoteList(generics.ListCreateAPIView):
+    """
+    Provides a list of all votes and allows authenticated users to create a vote on an answer.
+    Prevents a user from voting more than once on the same question.
+    """
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -59,5 +80,9 @@ class VoteList(generics.ListCreateAPIView):
 
 
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Allows detailed operations on a specific vote, including retrieval, update, and deletion.
+    Typically, only the creation and deletion of votes are handled (not updates), unless specific business logic requires it.
+    """
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
