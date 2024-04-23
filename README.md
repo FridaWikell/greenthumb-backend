@@ -109,11 +109,23 @@ The ERD’s for the project is presented below.
 
 ![Screenshot of the ERD of Vote class](doc/erd-vote.webp)
 
-
 ## Testing
 
 ### Validation of Code
-Insert screenshots of HTML, CSS and any other code files being tested in the relevant code validator - CSS validator might not validate newer CSS syntax - be careful to read and fully understand why it is giving you an error.
+
+All code files are validated in [CI Python Linter](https://pep8ci.herokuapp.com/#) to meet the PEP8 standards. All files got the "All clear, no errors found" except for the settings.py file. Four errors are left unfixed since the first of "AUTH_PASSWORD_VALIDATORS" wasn't under 79 characters, even if 'NAME' and 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator' were on separate lines. The rest of the values in "AUTH_PASSWORD_VALIDATORS" were left unfixed to follow the same pattern as the first value pair. 
+
+![Screenshot of "All clear, no errors found" result](doc/linter-all-clear.webp)
+
+All code files (except settings.py) got "All clear, no errors found" message.
+
+![Screenshot of errors in settings.py](doc/linter-settings.webp)
+
+Four errors were left unfixed in settings.py.
+
+![Screenshot of the code lines causing the errors in settings.py](doc/linter-settings-error.webp)
+
+The source to the errors left unfixed in settings.py.
 
 ### Automated Testing
 
@@ -183,9 +195,9 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Delete a question | When the user is logged in, they can delete they own questions | Press delete at their own question | 
 | View votes | View number of votes at each answer | Press view result | 
 
+### Bugs
 
-
-You should have tests for every section of every page.. individually.
+When all code files were validated in the Python Linter to meet PEP8 standards, just over 100 errors were discovered. These were corrected and all files (except the settings file, see [Validation of Code](#validation-of-code)) resulted without any errors.
 
 ## Technologies Used
 
