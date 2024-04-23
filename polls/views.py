@@ -6,7 +6,6 @@ from .serializers import QuestionSerializer, AnswerSerializer, VoteSerializer
 from greenthumb.permissions import IsOwnerOrReadOnly
 
 
-# Questions
 class QuestionList(generics.ListCreateAPIView):
     queryset = Question.objects.annotate(
         votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
@@ -21,30 +20,24 @@ class QuestionList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)  
 
-class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
-    #serializer_class = QuestionSerializer
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    
-    #def get_queryset(self):
-    #    return Question.objects.prefetch_related(
-    #        Prefetch('answers', queryset=Answer.objects.annotate(vote_count=Count('votes')))
-    #    )
 
+class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Question.objects.annotate(
         votes_count=Count('answers__votes', distinct=True)).order_by('-created_at')
     serializer_class = QuestionSerializer
-    permission_classes = [IsOwnerOrReadOnly]  # Custom permission to check the owner
+    permission_classes = [IsOwnerOrReadOnly]
 
-# Answers
+
 class AnswerList(generics.ListCreateAPIView):
     queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True))
     serializer_class = AnswerSerializer
+
 
 class AnswerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True))
     serializer_class = AnswerSerializer
 
-# Votes
+
 class VoteList(generics.ListCreateAPIView):
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
@@ -52,7 +45,6 @@ class VoteList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         user = self.request.user
-        # Retrieve the question associated with the answer to ensure user hasn't voted already
         question = serializer.validated_data['answer'].question
 
         if Vote.objects.filter(answer__question=question, voter=user).exists():
@@ -64,6 +56,7 @@ class VoteList(generics.ListCreateAPIView):
         context = super().get_serializer_context()
         context['request'] = self.request
         return context
+
 
 class VoteDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Vote.objects.all()
