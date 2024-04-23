@@ -11,19 +11,21 @@ class QAVTests(APITestCase):
         """
         Set up data for the entire test class
         """
-        cls.user = User.objects.create_user(username='user', password='testpass')
-        cls.other_user = User.objects.create_user(username='other', password='testpass')
-        
+        cls.user = User.objects.create_user(
+            username='user', password='testpass')
+        cls.other_user = User.objects.create_user(
+            username='other', password='testpass')
+
         cls.question = Question.objects.create(
-            owner=cls.user, 
+            owner=cls.user,
             text="What is the airspeed velocity of an unladen swallow?"
         )
-        
+
         cls.answer = Answer.objects.create(
-            question=cls.question, 
+            question=cls.question,
             text="African or European swallow?"
         )
-        
+
         cls.vote = Vote.objects.create(
             answer=cls.answer,
             voter=cls.user,
@@ -37,7 +39,7 @@ class QAVTests(APITestCase):
         url = reverse('question-list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data['results']), 1) 
+        self.assertEqual(len(response.data['results']), 1)
 
     def test_create_question_authenticated(self):
         """
@@ -84,17 +86,18 @@ class QAVTests(APITestCase):
         """
         self.client.login(username='other', password='testpass')
         url = reverse('vote-list')
-        # Ensure that no existing vote from `other_user` on the same question
-        Vote.objects.filter(voter=self.other_user, question=self.question).delete()
+        Vote.objects.filter(
+            voter=self.other_user, question=self.question).delete()
         data = {'answer': self.answer.id}
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED, response.data)
+        self.assertEqual(
+            response.status_code, status.HTTP_201_CREATED, response.data)
         self.assertEqual(Vote.objects.filter(voter=self.other_user).count(), 1)
-
 
     def test_vote_duplicate_prevention(self):
         """
-        Test prevention of duplicate votes on the same question by the same user.
+        Test prevention of duplicate votes
+        on the same question by the same user.
         """
         self.client.login(username='user', password='testpass')
         url = reverse('vote-list')

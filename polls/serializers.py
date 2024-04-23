@@ -20,8 +20,10 @@ class VoteSerializer(serializers.ModelSerializer):
         """
         question = data['answer'].question
         voter = self.context['request'].user
-        if Vote.objects.filter(answer__question=question, voter=voter).exists():
-            raise serializers.ValidationError("You have already voted on this question.")
+        if Vote.objects.filter(answer__question=question,
+                               voter=voter).exists():
+            raise serializers.ValidationError(
+                "You have already voted on this question.")
         return data
 
     def save(self, **kwargs):
@@ -58,7 +60,10 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ['id', 'owner', 'owner_username', 'text', 'created_at', 'answers', 'votes_count']
+        fields = [
+            'id', 'owner', 'owner_username', 'text',
+            'created_at', 'answers', 'votes_count'
+            ]
 
     def create(self, validated_data):
         answers_data = validated_data.pop('answers', [])
