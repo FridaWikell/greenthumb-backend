@@ -77,7 +77,37 @@ As a user, I would like to participate in polls, so that I can express my opinio
 
 The ERD’s for the project is presented below.
 
-SÄTT IN ERD!
+**Answer class**
+
+![Screenshot of the ERD of Answer class](doc/erd-answer.webp)
+
+**Comment class**
+
+![Screenshot of the ERD of Comment class](doc/erd-comment.webp)
+
+**Follower class**
+
+![Screenshot of the ERD of Follower class](doc/erd-follower.webp)
+
+**Like class**
+
+![Screenshot of the ERD of Like class](doc/erd-like.webp)
+
+**Post class**
+
+![Screenshot of the ERD of Post class](doc/erd-post.webp)
+
+**Profile class**
+
+![Screenshot of the ERD of Profile class](doc/erd-profile.webp)
+
+**Question class**
+
+![Screenshot of the ERD of Question class](doc/erd-question.webp)
+
+**Vote class**
+
+![Screenshot of the ERD of Vote class](doc/erd-vote.webp)
 
 
 ## Testing
