@@ -4,6 +4,11 @@ from followers.models import Follower
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Profile model that handles serialization and deserialization of Profile data.
+    The serializer includes custom methods to check ownership and if the current user is following the profile owner,
+    enhancing functionality for client-side applications.
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
