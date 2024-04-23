@@ -26,19 +26,19 @@ To view all epics and user stories for the backend are collected at a project bo
 
 #### Epics
 
-[User authentication](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60174807)
+[User authentication](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60174807)  
 As a new or returning user, I would like to securely log in or change my password, so that I can access my personalized account securely and maintain my privacy.
 
-[User profile management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175794)
+[User profile management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175794)  
 As a registered user, I would like to update my profile information including my profile image and username, so that my profile reflects my current preferences and identity.
 
-[Content management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177794)
+[Content management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177794)  
 As a user, I would like to publish and manage posts with text and images, so that I can share and express my thoughts, experiences, and creative content with the community.
 
-[Social interaction](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178790)
+[Social interaction](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178790)  
 As a user, I would like to interact with other users' content through likes and follow their profiles, so that I can engage with the community and stay updated on content from users I am interested in.
 
-[Participation in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180110)
+[Participation in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180110)  
 As a user, I would like to participate in polls, so that I can express my opinions and engage with interactive content on the platform.
 
 #### User Stories
@@ -47,28 +47,28 @@ All user stories are labeled with must have, should have, could have or won't ha
 
 User stories:
 
-[User login](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175146)
+[User login](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175146)  
 As a user, I would like to be able to log in to my account using my credentials, so that I can access my personalized experience on the platform.
 
-[User password change](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175628)
+[User password change](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175628)  
 As a registered user, I would like to change my password, so that I can ensure my account's security.
 
-[Update profile image](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60176260)
+[Update profile image](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60176260)  
 As a registered user, I would like to update my profile image, so that I can keep my profile up-to-date.
 
-[Update username](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177301)
+[Update username](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177301)  
 As a registered user, I would like to change my username, so that I can update my identity on the platform.
 
-[Publish posts with images](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178550)
+[Publish posts with images](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178550)  
 As a user, I would like to publish posts with images, so that I can share content with others.
 
-[Like posts](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179228)
+[Like posts](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179228)  
 As a user, I would like to like posts made by others, so that I can engage with content that I find appealing.
 
-[Follow users](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179916)
+[Follow users](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179916)  
 As a user, I would like to follow other users, so that I can keep up with their posts and activities on the platform.
 
-[Participate in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180465)
+[Participate in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180465)  
 As a user, I would like to participate in polls, so that I can express my opinion on different topics.
 
 ## Design
@@ -87,10 +87,33 @@ Insert screenshots of HTML, CSS and any other code files being tested in the rel
 
 ### Automated Testing
 
+A total of 34 tests were written for all apps. Below, the sum for each app is presented and linked to each app.
 
+[Comments](https://github.com/FridaWikell/greenthumb-backend/blob/main/comments/tests.py)
+
+![Screenshot of test result for comments](doc/tests-comments.webp)
+
+[Followers](https://github.com/FridaWikell/greenthumb-backend/blob/main/followers/tests.py)
+
+![Screenshot of test result for followers](doc/tests-followers.webp)
+
+[Likes](https://github.com/FridaWikell/greenthumb-backend/blob/main/likes/tests.py)
+
+![Screenshot of test result for likes](doc/tests-likes.webp)
+
+[Polls](https://github.com/FridaWikell/greenthumb-backend/blob/main/polls/tests.py)
+
+![Screenshot of test result for polls](doc/tests-polls.webp)
+
+[Posts](https://github.com/FridaWikell/greenthumb-backend/blob/main/posts/tests.py)
+
+![Screenshot of test result for posts](doc/tests-posts.webp)
+
+[Profiles](https://github.com/FridaWikell/greenthumb-backend/blob/main/profiles/tests.py)
+
+![Screenshot of test result for profiles](doc/tests-profiles.webp)
 
 ### Manual Testing
-
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
