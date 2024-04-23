@@ -21,7 +21,6 @@ class PostTests(APITestCase):
             hardiness_zone='5'
         )
 
-        # Set up a temporary image
         image = Image.new('RGB', (100, 100))
         tmp_file = tempfile.NamedTemporaryFile(suffix='.jpg')
         image.save(tmp_file)
@@ -38,8 +37,7 @@ class PostTests(APITestCase):
         url = reverse('posts-list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # Check if pagination is applied and correct your test accordingly
-        self.assertEqual(len(response.data['results']), 1)  # Adjust to reference 'results' if pagination is enabled
+        self.assertEqual(len(response.data['results']), 1)
 
     def test_create_post_authenticated(self):
         """
@@ -65,17 +63,14 @@ class PostTests(APITestCase):
         self.client.login(username='user', password='testpass')
         url = reverse('post-detail', kwargs={'pk': self.post.pk})
         
-        # Retrieve
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
-        # Update
         update_data = {'title': 'Updated Title'}
         response = self.client.patch(url, update_data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['title'], 'Updated Title')
 
-        # Delete
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(Post.objects.filter(pk=self.post.pk).exists())
@@ -87,12 +82,10 @@ class PostTests(APITestCase):
         self.client.login(username='other', password='testpass')
         url = reverse('post-detail', kwargs={'pk': self.post.pk})
         
-        # Attempt to update
         update_data = {'title': 'Illegally Updated Title'}
         response = self.client.patch(url, update_data)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         
-        # Attempt to delete
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertTrue(Post.objects.filter(pk=self.post.pk).exists())
