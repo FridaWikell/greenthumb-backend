@@ -5,13 +5,16 @@ from django.contrib.auth.models import User
 from posts.models import Post
 from likes.models import Like
 
+
 class LikeTests(APITestCase):
     @classmethod
     def setUpTestData(cls):
         """Set up data for the entire class"""
         cls.user = User.objects.create_user(username='user', password='pass')
-        cls.other_user = User.objects.create_user(username='other', password='pass')
-        cls.post = Post.objects.create(title="A Post", content="Some content", owner=cls.user)
+        cls.other_user = User.objects.create_user(
+            username='other', password='pass')
+        cls.post = Post.objects.create(
+            title="A Post", content="Some content", owner=cls.user)
         cls.like = Like.objects.create(owner=cls.user, post=cls.post)
 
     def test_list_likes(self):
