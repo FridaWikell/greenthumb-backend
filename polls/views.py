@@ -29,7 +29,7 @@ class QuestionDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class AnswerList(generics.ListCreateAPIView):
-    queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True))
+    queryset = Answer.objects.annotate(votes_count=Count('votes', distinct=True)).order_by('-created_at')
     serializer_class = AnswerSerializer
 
 
