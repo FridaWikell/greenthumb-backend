@@ -11,6 +11,10 @@ from PIL import Image
 class PostTests(APITestCase):
     @classmethod
     def setUpTestData(cls):
+        """
+        Create user accounts and a sample post with a temporary image
+        for use in all test methods.
+        """
         cls.user = User.objects.create_user(username='user', password='testpass')
         cls.other_user = User.objects.create_user(username='other', password='testpass')
         
@@ -28,6 +32,9 @@ class PostTests(APITestCase):
         cls.image = tmp_file
 
     def tearDown(cls):
+        """
+        Close and remove the temporary image file after tests.
+        """
         cls.image.close()
 
     def test_list_posts(self):
