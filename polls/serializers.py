@@ -3,13 +3,21 @@ from .models import Question, Answer, Vote
 
 
 class VoteSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Vote model. It handles serialization for creating and
+    listing votes. Ensures that a user cannot vote more than once per question
+    by implementing custom validation.
+    """
     class Meta:
         model = Vote
         fields = ['id', 'answer', 'voter', 'created_at']
         read_only_fields = ('voter',)
 
     def validate(self, data):
-        # More defensive approach with checks
+        """
+        Validate that the user has not already voted for the same question.
+        Raises a ValidationError if the user has already voted.
+        """
         question = data['answer'].question
         voter = self.context['request'].user
         if Vote.objects.filter(answer__question=question, voter=voter).exists():
@@ -17,13 +25,15 @@ class VoteSerializer(serializers.ModelSerializer):
         return data
 
     def save(self, **kwargs):
-        # Explicitly set the voter to the user from the request context
         kwargs['voter'] = self.context['request'].user
         return super().save(**kwargs)
 
 
 class AnswerSerializer(serializers.ModelSerializer):
-    #votes_count = serializers.IntegerField(read_only=True)
+    """
+    Serializer for the Answer model. Includes a custom method to count votes,
+    which is included in the serialization output.
+    """
     votes_count = serializers.SerializerMethodField()
 
     def get_votes_count(self, obj):
@@ -35,6 +45,12 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 class QuestionSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Question model. Handles serialization for creating
+    and listing questions. Includes nested AnswerSerializers to represent
+    answers associated with the question, and custom methods to handle
+    the creation of answers within the same request as a question.
+    """
     owner = serializers.PrimaryKeyRelatedField(read_only=True)
     owner_username = serializers.ReadOnlyField(source='owner.username')
     answers = AnswerSerializer(many=True, read_only=False, required=False)
