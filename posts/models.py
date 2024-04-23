@@ -9,7 +9,7 @@ class Post(models.Model):
     """
 
     HARDINESS_ZONES = (
-        (0, 'Not applicable'), 
+        (0, 'Not applicable'),
         (1, 'Zone 1'),
         (2, 'Zone 2'),
         (3, 'Zone 3'),

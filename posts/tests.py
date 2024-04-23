@@ -15,9 +15,11 @@ class PostTests(APITestCase):
         Create user accounts and a sample post with a temporary image
         for use in all test methods.
         """
-        cls.user = User.objects.create_user(username='user', password='testpass')
-        cls.other_user = User.objects.create_user(username='other', password='testpass')
-        
+        cls.user = User.objects.create_user(
+            username='user', password='testpass')
+        cls.other_user = User.objects.create_user(
+            username='other', password='testpass')
+
         cls.post = Post.objects.create(
             owner=cls.user,
             title="First Post",
@@ -69,10 +71,10 @@ class PostTests(APITestCase):
         """
         self.client.login(username='user', password='testpass')
         url = reverse('post-detail', kwargs={'pk': self.post.pk})
-        
+
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        
+
         update_data = {'title': 'Updated Title'}
         response = self.client.patch(url, update_data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -88,12 +90,11 @@ class PostTests(APITestCase):
         """
         self.client.login(username='other', password='testpass')
         url = reverse('post-detail', kwargs={'pk': self.post.pk})
-        
+
         update_data = {'title': 'Illegally Updated Title'}
         response = self.client.patch(url, update_data)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        
+
         response = self.client.delete(url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.assertTrue(Post.objects.filter(pk=self.post.pk).exists())
-
