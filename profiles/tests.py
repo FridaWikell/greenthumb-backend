@@ -9,20 +9,21 @@ from rest_framework.authtoken.models import Token
 class ProfileTests(APITestCase):
     @classmethod
     def setUpTestData(cls):
-        cls.user = User.objects.create_user(username='user1', password='testpass')
-        cls.other_user = User.objects.create_user(username='other', password='testpass')
-        
-        # Profiles should be automatically created by the signal
+        cls.user = User.objects.create_user(
+            username='user1', password='testpass')
+        cls.other_user = User.objects.create_user(
+            username='other', password='testpass')
+
         cls.profile = Profile.objects.get(owner=cls.user)
         cls.other_profile = Profile.objects.get(owner=cls.other_user)
 
-        # Create tokens for authentication
         cls.user_token = Token.objects.create(user=cls.user)
         cls.other_user_token = Token.objects.create(user=cls.other_user)
 
     def authenticate(self, token):
         """
-        Helper method to authenticate the test client with the specified user's token.
+        Helper method to authenticate the test client
+        with the specified user's token.
         """
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
 
@@ -30,8 +31,10 @@ class ProfileTests(APITestCase):
         """
         Test automatic profile creation upon user registration.
         """
-        new_user = User.objects.create_user(username='newuser', password='test123')
-        self.assertIsNotNone(Profile.objects.get(owner=new_user), "Profile should be automatically created.")
+        new_user = User.objects.create_user(
+            username='newuser', password='test123')
+        self.assertIsNotNone(Profile.objects.get(
+            owner=new_user), "Profile should be automatically created.")
 
     def test_list_profiles(self):
         """
@@ -40,7 +43,7 @@ class ProfileTests(APITestCase):
         url = reverse('profiles-list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data['results']), 2)  # Adjust for pagination
+        self.assertEqual(len(response.data['results']), 2)
 
     def test_retrieve_profile(self):
         """
