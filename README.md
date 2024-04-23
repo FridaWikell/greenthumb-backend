@@ -1,110 +1,153 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# GreenThumb Hub - Backend
 
-Welcome Frida Wikell,
+![image of site](link to image) - use an image from AmIResponsive that shows the site on multiple devices
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## Introduction
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+This is the backend of the project GreenThumb Hub. You can find the frontend repository [here](https://github.com/FridaWikell/greenthumb-front).
 
-## Gitpod Reminders
+The project is about creating a social media, a hub, for all gardeners. The purpose is to show other green fingered fellows how your garden is progressing, to ask for advice and questions or just have a fun time and find new friends with the same hobby as yourself. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of Contents
 
-`python3 -m http.server`
+## User Experience
 
-A blue button should appear to click: _Make Public_,
+### User Goals
 
-Another blue button should appear to click: _Open Browser_.
+The user goal is to be able to share the interest and hobby with other green fingered people. They should be able to communicate and learn from each others knowledge.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Site Owner Goals
 
-A blue button should appear to click: _Make Public_,
+The site owner goal is to provide a place where the green fingers can grow and crack in bloom.
 
-Another blue button should appear to click: _Open Browser_.
+### Epics & User Stories
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+To view all epics and user stories for the backend are collected at a project board [here](https://github.com/users/FridaWikell/projects/7).
 
-To log into the Heroku toolbelt CLI:
+#### Epics
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+[User authentication](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60174807)
+As a new or returning user, I would like to securely log in or change my password, so that I can access my personalized account securely and maintain my privacy.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+[User profile management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175794)
+As a registered user, I would like to update my profile information including my profile image and username, so that my profile reflects my current preferences and identity.
 
-------
+[Content management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177794)
+As a user, I would like to publish and manage posts with text and images, so that I can share and express my thoughts, experiences, and creative content with the community.
 
-## Release History
+[Social interaction](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178790)
+As a user, I would like to interact with other users' content through likes and follow their profiles, so that I can engage with the community and stay updated on content from users I am interested in.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[Participation in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180110)
+As a user, I would like to participate in polls, so that I can express my opinions and engage with interactive content on the platform.
 
-**September 20 2023:** Update Python version to 3.9.17.
+#### User Stories
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+All user stories are labeled with must have, should have, could have or won't have, depending on prioritization according to MoSCoW prioritization. Each of all user stories are also labeled with a point. The point is an estimate in how long time it will take to finish the acceptance criterias in the user story. All acceptance criterias are presented in each user story at the project board.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+User stories:
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+[User login](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175146)
+As a user, I would like to be able to log in to my account using my credentials, so that I can access my personalized experience on the platform.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+[User password change](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175628)
+As a registered user, I would like to change my password, so that I can ensure my account's security.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+[Update profile image](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60176260)
+As a registered user, I would like to update my profile image, so that I can keep my profile up-to-date.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+[Update username](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177301)
+As a registered user, I would like to change my username, so that I can update my identity on the platform.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+[Publish posts with images](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178550)
+As a user, I would like to publish posts with images, so that I can share content with others.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+[Like posts](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179228)
+As a user, I would like to like posts made by others, so that I can engage with content that I find appealing.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+[Follow users](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179916)
+As a user, I would like to follow other users, so that I can keep up with their posts and activities on the platform.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+[Participate in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180465)
+As a user, I would like to participate in polls, so that I can express my opinion on different topics.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Design
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Entity-Relationship Diagram - ERD
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+The ERD’s for the project is presented below.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+SÄTT IN ERD!
 
-------
 
-## FAQ about the uptime script
+## Testing
 
-**Why have you added this script?**
+### Validation of Code
+Insert screenshots of HTML, CSS and any other code files being tested in the relevant code validator - CSS validator might not validate newer CSS syntax - be careful to read and fully understand why it is giving you an error.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Automated Testing
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Manual Testing
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+| Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
+| -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
+| Sign up | New user gets signed up | Enter requested information in sign up form | 
+| Sign up with same username | User can’t sign up when they try username already in use | Try to sign up with a username already in use | 
+| Log in | User gets logged in with correct user credentials | Enter valid user information | enter details here | enter details here |
+| Password change | Password updates when the same password is entered twice | Enter new password and confirm the password in change password form |
+| Password change - fail | Password doesn’t updates if you don’t write the same password twice in change password form |
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+| Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
+| -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
+| Change profile image | The profile image changed at all places when save is pressed | Change profile image, check profile image at all places |
+| Update username | The username is changed at all places when save is pressed | Change username, check username at all places |
+| Update username - fail | Username doesn’t update when the user tries to update to a username already in use | Try to update username to an username already in use |
+| Update username - warning | The user gets a warning that the username they try to change to already is in use | Try to update username to an username already in use |
 
-**Can I opt out?**
+| Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
+| -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
+| Upload a post with an image | The post is submitted when an image, text and content is applied | Add a post with image, title and content | 
+| Upload a post without an image | The post is submitted when text and content is applied | Add a post with title and content |
+| Error message for large images | When an image over 2 MB is uploaded, an error message is shown | Upload a large image, over 2 MB in size | 
+| Change image before creating post | When an image is uploaded, the user can change the image and upload a new image before submitting the post | Upload an image, change image and upload a new |
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+| Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
+| -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
+| Like post | When the like button is pressed, a like is registered and the number of likes increases by one | Find a post, press like button | 
+| Unlike post | When the like button at an already liked post is pressed, the like is taken back and the number of likes decreases by one | Find a already liked post, press like button |
+| Follow user | When the follow button is pressed, the user is followed and its post is visible in “plant friends” | Find a user, press follow and view to be sure its posts are visible in plant friends | 
+| Follow user - button change | When the follow button is pressed, it changes to become an unfollow button | Find a user, press follow and watch the button content change |
+| Unfollow user | When the unfollow button is pressed, the user is unfollowed and its post isn’t visible in “plant friends” | Find a user, press unfollow and view to be sure its posts aren’t visible in plant friends | 
+| Unfollow user - button change | When the unfollow button is pressed, it changes to become a follow button | Find a user, press unfollow and watch the button content change |
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+| Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
+| -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
+| Post a question | When question and answers are filled out and submit button is pressed, the questions is posted | Write a question, add answers, press submit | 
+| Delete a question | When the user is logged in, they can delete they own questions | Press delete at their own question | 
+| View votes | View number of votes at each answer | Press view result | 
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
 
-Happy coding!
+You should have tests for every section of every page.. individually.
+
+## Technologies Used
+
+Detail what technologies you used. So what code languages, what frameworks, libraries, what software did you use to develop the site - Balsamic for your wireframes, Figma for a mockup?
+
+## Deployment
+
+Detail how to clone the repository, how to fork the repository - how to run the site locally and how to deploy it.
+
+
+## Credits
+
+You need to credit where you got anything for your site from.. where are the images from, are they all from the same site? where did you get the content from, if you wrote it yourself, did you fact check anywhere? did you get code from anywhere? if so, it needs to be clearly marked in both the code and the readme.
+
+## Acknowledgements
+Any special acknowledgements you'd like to leave
+
+Back to top link to return to the top of the readme.
