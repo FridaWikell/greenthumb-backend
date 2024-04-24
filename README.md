@@ -20,56 +20,149 @@ The user goal is to be able to share the interest and hobby with other green fin
 
 The site owner goal is to provide a place where the green fingers can grow and crack in bloom.
 
-### Epics & User Stories
+### User Stories
 
-To view all epics and user stories for the backend are collected at a project board [here](https://github.com/users/FridaWikell/projects/7).
-
-#### Epics
-
-[User authentication](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60174807)  
-As a new or returning user, I would like to securely log in or change my password, so that I can access my personalized account securely and maintain my privacy.
-
-[User profile management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175794)  
-As a registered user, I would like to update my profile information including my profile image and username, so that my profile reflects my current preferences and identity.
-
-[Content management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177794)  
-As a user, I would like to publish and manage posts with text and images, so that I can share and express my thoughts, experiences, and creative content with the community.
-
-[Social interaction](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178790)  
-As a user, I would like to interact with other users' content through likes and follow their profiles, so that I can engage with the community and stay updated on content from users I am interested in.
-
-[Participation in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180110)  
-As a user, I would like to participate in polls, so that I can express my opinions and engage with interactive content on the platform.
-
-#### User Stories
+A total of five epics and eight user stories were created. To view all epics and user stories for the backend are collected at a project board [here](https://github.com/users/FridaWikell/projects/7).
 
 All user stories are labeled with must have, should have, could have or won't have, depending on prioritization according to MoSCoW prioritization. Each of all user stories are also labeled with a point. The point is an estimate in how long time it will take to finish the acceptance criterias in the user story. All acceptance criterias are presented in each user story at the project board.
 
-User stories:
+| Class | Points | Percentage of total points |
+| ----------- | ------ | ------------ |
+| Must have | 28 p | 64 % |
+| Should have | 4 p | 9 % |
+| Could have | 4 p | 9 % |
+| Won't have | 8 p | 18 % |
 
-[User login](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175146)  
+#### [Epic - User authentication](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60174807)  
+As a new or returning user, I would like to securely log in or change my password, so that I can access my personalized account securely and maintain my privacy.
+
+**User story - User login**
+
 As a user, I would like to be able to log in to my account using my credentials, so that I can access my personalized experience on the platform.
 
-[User password change](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175628)  
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is at the login endpoint,  
+When they submit their username and password,  
+Then the system should validate the credentials and return a success response with a session token if the credentials are correct.  
+- Acceptance Criteria 2  
+Given a user navigates to the login endpoint,  
+When they submit correct username and password,  
+Then the system should validate the credentials and issue an authentication token or session.  
+- Acceptance Criteria 3  
+Given a user navigates to the login endpoint,  
+When they submit incorrect username or password,  
+Then the system should deny access and provide an error message stating incorrect credentials.  
+
+**User Story - User password change**
+
 As a registered user, I would like to change my password, so that I can ensure my account's security.
 
-[Update profile image](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60176260)  
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is logged in and at the password change endpoint,  
+When they submit their old password along with a new password,  
+Then the system should verify the old password, change to the new password, and return a success message.  
+- Acceptance Criteria 2  
+Given a user is logged in and navigates to the password change endpoint,  
+When they submit the correct current password and a valid new password,  
+Then the system should update the password and confirm the change to the user.  
+- Acceptance Criteria 3  
+Given a user is logged in and navigates to the password change endpoint,  
+When they submit an incorrect current password or invalid new password,  
+Then the system should deny the change and display an error message.  
+
+#### [Epic - User profile management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175794)  
+As a registered user, I would like to update my profile information including my profile image and username, so that my profile reflects my current preferences and identity.
+
+**User story - Update profile image**
+
 As a registered user, I would like to update my profile image, so that I can keep my profile up-to-date.
 
-[Update username](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177301)  
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is logged in and at the update profile image endpoint,  
+When they upload a new image file,  
+Then the system should replace the old image with the new one and return a success message.  
+
+**User Story - Update username**
+
 As a registered user, I would like to change my username, so that I can update my identity on the platform.
 
-[Publish posts with images](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178550)  
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is logged in and at the update username endpoint,  
+When they input a new username,  
+Then the system should update the username  
+
+#### [Epic - Content management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177794)  
+As a user, I would like to publish and manage posts with text and images, so that I can share and express my thoughts, experiences, and creative content with the community.
+
+**User Story - Publish posts with images**
+
 As a user, I would like to publish posts with images, so that I can share content with others.
 
-[Like posts](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179228)  
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is logged in and at the post creation endpoint,  
+When they submit a post along with image,  
+Then the system should save the post and images and publish it to the page.  
+- Acceptance Criteria 2  
+Given an image file is too large or of an unsupported format,  
+When the user attempts to attach it with the post,  
+Then the system should reject the file and provide an error message detailing file size or format restrictions.  
+
+#### [Epic - Social interaction](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178790)  
+As a user, I would like to interact with other users' content through likes and follow their profiles, so that I can engage with the community and stay updated on content from users I am interested in.
+
+**User Story - Like posts**
+
 As a user, I would like to like posts made by others, so that I can engage with content that I find appealing.
 
-[Follow users](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60179916)  
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is logged in and views a post,  
+When they click the like button,  
+Then the system should increment the like count for the post.  
+- Acceptance Criteria 2  
+Given a user has already liked a post,  
+When they attempt to like the same post again,  
+Then the system should not increment the like count.  
+
+**User Story - Follow users**
+
 As a user, I would like to follow other users, so that I can keep up with their posts and activities on the platform.
 
-[Participate in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180465)  
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is logged in and at another user's profile,  
+When they click the follow button,  
+Then the system should add that user to their following list.  
+- Acceptance Criteria 2  
+Given a user is already following another user,  
+When they click the unfollow button,  
+Then the system should remove that user to their following list.  
+
+#### [Epic - Participation in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180110)  
+As a user, I would like to participate in polls, so that I can express my opinions and engage with interactive content on the platform.
+
+**User Story - Participate in polls**
+
 As a user, I would like to participate in polls, so that I can express my opinion on different topics.
+
+Acceptance Criteria:
+
+- Acceptance Criteria 1  
+Given the user is logged in and at the poll participation endpoint,  
+When they select an option and submit their choice,  
+Then the system should record their response.  
 
 ## Design
 
@@ -197,7 +290,17 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 
 ### Bugs
 
-When all code files were validated in the Python Linter to meet PEP8 standards, just over 100 errors were discovered. These were corrected and all files (except the settings file, see [Validation of Code](#validation-of-code)) resulted without any errors.
+When all code files were validated in the Python Linter to meet PEP8 standards, just over 100 errors were discovered. The five most common were:
+
+- No newline at end of file 
+- Blank line contains whitespace
+- Too many blank lines
+- Expected 2 blank lines, found 1
+- Line too long
+
+The most common error was "Line too long".
+
+These error were corrected and all files (except the settings file, see [Validation of Code](#validation-of-code)) resulted without any errors.
 
 ## Technologies Used
 
@@ -286,9 +389,9 @@ Link to deployed website: https://greenthumb-back-4bd145d8f205.herokuapp.com/
 
 The project is based at [drf-api from Code Institute](https://github.com/Code-Institute-Solutions/drf-api). The comments app, followers app, likes app, posts app, and profiles app are based but in some cases modified from the mentioned project above.
 
-You need to credit where you got anything for your site from.. where are the images from, are they all from the same site? where did you get the content from, if you wrote it yourself, did you fact check anywhere? did you get code from anywhere? if so, it needs to be clearly marked in both the code and the readme.
+To get more knowledge, the [Django documentation](https://docs.djangoproject.com/en/5.0/) and [Testing in Django](https://docs.djangoproject.com/en/5.0/topics/testing/) was used.
 
 ## Acknowledgements
 Any special acknowledgements you'd like to leave
 
-Back to top link to return to the top of the readme.
+[Back to top](#greenthumb-hub---backend)
