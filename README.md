@@ -201,6 +201,33 @@ When all code files were validated in the Python Linter to meet PEP8 standards, 
 
 ## Technologies Used
 
+All code is written in [Gitpod](https://www.gitpod.io/). The code language used is [Python](https://www.python.org/) with Django framework. To build RESTful APIs, Django REST is used. For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. 
+
+### Packages used
+
+| Name | Used for |
+| -------------- | ------------ |
+| asgiref | Package for ASGI (Asynchronous Server Gateway Interface) applications, enabling asynchronous programming features in Django |
+| cloudinary | Integrates with the Cloudinary service to manage application media assets in the cloud. |
+| dj-database-url | Allows Django projects to utilize database URLs for configuration. |
+| dj-rest-auth | Provides a set of REST API endpoints for handling authentication tasks in a Django project. |
+| Django | A Python web framework for rapid development and clean, pragmatic design. |
+| django-allauth | Adds authentication, registration, and account management capabilities to Django projects. |
+| django-cloudinary-storage | A Django storage backend that integrates with Cloudinary for handling static and media assets. |
+| django-cors-headers | Middleware for Django to handle Cross-Origin Resource Sharing (CORS), allowing web applications to safely make cross-domain requests. |
+| django-filter | A convenient way to add filtering capability to Django web applications. |
+| djangorestframework | A toolkit for building Web APIs in Django. |
+| djangorestframework-simplejwt | A JSON Web Token authentication plugin for the Django REST Framework. |
+| gunicorn | A WSGI HTTP server for UNIX systems, serving Python web applications concurrently. |
+| oauthlib | A implementation of OAuth for sharing secure access to resources without sharing passwords. |
+| Pillow | The Python Imaging Library adds image processing capabilities to the Python interpreter. |
+| psycopg2 | A PostgreSQL database adapter for Python, facilitating interaction between Python applications and PostgreSQL databases. |
+| PyJWT | A Python library for encoding and decoding JSON Web Tokens. |
+| python3-openid | A set of Python libraries to support using OpenID. |
+| pytz | Provides timezone definitions for Python, helping to handle datetime objects aware of time zones. |
+| requests-oauthlib | Combines the Requests library with OAuthlib for OAuth1 and OAuth2 sessions. |
+| sqlparse | A non-validating SQL parser module for Python, used to format or decompose SQL queries. |
+
 Detail what technologies you used. So what code languages, what frameworks, libraries, what software did you use to develop the site - Balsamic for your wireframes, Figma for a mockup?
 
 ## Deployment
