@@ -201,7 +201,9 @@ When all code files were validated in the Python Linter to meet PEP8 standards, 
 
 ## Technologies Used
 
-All code is written in [Gitpod](https://www.gitpod.io/). The code language used is [Python](https://www.python.org/) with Django framework. To build RESTful APIs, Django REST is used. For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. 
+The repository is created from [Code Institutes Gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template) through [GitHub](https://github.com/). All code is written in [Gitpod](https://www.gitpod.io/) and deployed at [Heroku](https://www.heroku.com). The code language used is [Python](https://www.python.org/) with Django framework. To build RESTful APIs, Django REST is used. 
+
+For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. To convert the screenshots to webp file format, [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) is used.
 
 ### Packages used
 
@@ -232,8 +234,53 @@ Detail what technologies you used. So what code languages, what frameworks, libr
 
 ## Deployment
 
-Detail how to clone the repository, how to fork the repository - how to run the site locally and how to deploy it.
+### Fork repository in GitHub
 
+- Open the chosen repository in GitHub
+- Click on the "Fork" button
+- A copy of the repository is now located in your own account
+
+### Clone repository in GitHub
+
+- Open the chosen repository in GitHub
+- Click on "Code" button
+- Copy the URL
+- Open your command line interface
+- Navigate to the directory you want to clone the repository to
+- Use 'git clone', followed by the earlier copied URL
+- Move into the newly created directory
+- Install the dependencies using 'pip install -r requirements.txt'
+- Run the application with 'python manage.py runserver'
+
+### Deployment to Heroku
+
+- Open Heroku and log in
+- Click on "New" and choose the option "Create new app"
+- Choose an app name and which region (Europe or United States) you are located in
+- Press "Create app"
+- When the app is created, choose the Settings tab
+- Under "Config Vars", press "Reveal Config Vars"
+- In key, write ALLOWED_HOST
+- In value, insert the url to the created app (without https://)
+- Press "Add"
+- In key, write CLOUDINARY_URL
+- In value, insert the url to the cloudinary database
+- Press "Add"
+- In key, write DATABASE_URL
+- In value, insert the url to the database
+- Press "Add"
+- In key, write SECRET_KEY
+- In value, insert the secret key from the Django settings
+- Press "Add"
+- Under "Buildpacks", press "Add buildpack"
+- Choose "Python", press "Add buildpack"
+- Change tab to the Deploy tab
+- Choose deploy method - GitHub
+- Search for the correct repository name at your connected GitHub account
+- Press "Connect"
+- Under "Manual deploy", choose which branch to deploy and press "Deploy Branch"
+
+Link to deployed website: https://greenthumb-back-4bd145d8f205.herokuapp.com/
 
 ## Credits
 
