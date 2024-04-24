@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from posts.models import Post
 
 
+"""
+Code based at https://github.com/Code-Institute-Solutions/drf-api
+"""
 class Comment(models.Model):
     """
     Comment model, related to User and Post

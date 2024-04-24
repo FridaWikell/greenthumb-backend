@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+"""
+Code based at https://github.com/Code-Institute-Solutions/drf-api
+"""
 class Post(models.Model):
     """
     Post model, related to 'owner', i.e. a User instance.

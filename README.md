@@ -284,6 +284,8 @@ Link to deployed website: https://greenthumb-back-4bd145d8f205.herokuapp.com/
 
 ## Credits
 
+The project is based at [drf-api from Code Institute](https://github.com/Code-Institute-Solutions/drf-api). The comments app, followers app, likes app, posts app, and profiles app are based but in some cases modified from the mentioned project above.
+
 You need to credit where you got anything for your site from.. where are the images from, are they all from the same site? where did you get the content from, if you wrote it yourself, did you fact check anywhere? did you get code from anywhere? if so, it needs to be clearly marked in both the code and the readme.
 
 ## Acknowledgements

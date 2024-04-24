@@ -1,9 +1,11 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
 
 
+"""
+Code based at https://github.com/Code-Institute-Solutions/drf-api
+"""
 class Profile(models.Model):
     """
     Represents a user profile linked to a Django User model.
