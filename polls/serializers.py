@@ -36,6 +36,7 @@ class AnswerSerializer(serializers.ModelSerializer):
     Serializer for the Answer model. Includes a custom method to count votes,
     which is included in the serialization output.
     """
+    text = serializers.CharField(required=True, allow_blank=False, error_messages={"blank": "This field may not be left blank."})
     votes_count = serializers.SerializerMethodField()
 
     def get_votes_count(self, obj):
@@ -55,8 +56,13 @@ class QuestionSerializer(serializers.ModelSerializer):
     """
     owner = serializers.PrimaryKeyRelatedField(read_only=True)
     owner_username = serializers.ReadOnlyField(source='owner.username')
-    answers = AnswerSerializer(many=True, read_only=False, required=False)
     votes_count = serializers.IntegerField(read_only=True)
+    answers = AnswerSerializer(many=True, required=True)
+
+    def validate_answers(self, value):
+        if len(value) < 2:
+            raise serializers.ValidationError("At least two answers are required.")
+        return value
 
     class Meta:
         model = Question
