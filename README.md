@@ -252,41 +252,39 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Sign up | New user gets signed up | Enter requested information in sign up form | 
-| Sign up with same username | User can’t sign up when they try username already in use | Try to sign up with a username already in use | 
-| Log in | User gets logged in with correct user credentials | Enter valid user information | enter details here | enter details here |
-| Password change | Password updates when the same password is entered twice | Enter new password and confirm the password in change password form |
-| Password change - fail | Password doesn’t updates if you don’t write the same password twice in change password form |
+| Sign up | New user gets signed up | Enter requested information in sign up form | A new user got signed up | Pass |
+| Sign up with same username | User can’t sign up when they try username already in use | Try to sign up with a username already in use | The user can't sign up with a username already in use | Pass |
+| Log in | User gets logged in with correct user credentials | Enter valid user information | User gets logged in | Pass |
+| Password change | Password updates when the same password is entered twice | Enter new password and confirm the password in change password form | Password got changed | Pass |
+| Password change - fail | Password doesn’t updates if you don’t write the same password twice in change password form | The password didn't get changed | Pass |
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Change profile image | The profile image changed at all places when save is pressed | Change profile image, check profile image at all places |
-| Update username | The username is changed at all places when save is pressed | Change username, check username at all places |
-| Update username - fail | Username doesn’t update when the user tries to update to a username already in use | Try to update username to an username already in use |
-| Update username - warning | The user gets a warning that the username they try to change to already is in use | Try to update username to an username already in use |
+| Change profile image | The profile image is changed when save is pressed | Change profile image, check profile image | Profile image is changed | Pass |
+| Update username | The username is changed when save is pressed | Change username, check username | Username is changed | Pass |
+| Update username - fail | Username doesn’t update when the user tries to update to a username already in use | Try to update username to an username already in use | Username isn't updated | Pass |
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Upload a post with an image | The post is submitted when an image, text and content is applied | Add a post with image, title and content | 
-| Upload a post without an image | The post is submitted when text and content is applied | Add a post with title and content |
-| Error message for large images | When an image over 2 MB is uploaded, an error message is shown | Upload a large image, over 2 MB in size | 
-| Change image before creating post | When an image is uploaded, the user can change the image and upload a new image before submitting the post | Upload an image, change image and upload a new |
+| Upload a post with an image | The post is submitted when an image, text and content is applied | Add a post with image, title, content and hardiness zone | The post is submitted | Pass |
+| Upload a post without an image | The post is submitted when text, content and hardiness zone are applied | Add a post with title, content and hardiness zone | The post is submitted | Pass | 
+| Error message for large images | When an image over 2 MB is uploaded, an error message is shown | Upload a large image, over 2 MB in size | An error message is triggered | Pass |
+| Change image before creating post | When an image is uploaded, the user can change the image and upload a new image before submitting the post | Upload an image, change image and upload a new | The newest image is uploaded in the post | Pass |
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Like post | When the like button is pressed, a like is registered and the number of likes increases by one | Find a post, press like button | 
-| Unlike post | When the like button at an already liked post is pressed, the like is taken back and the number of likes decreases by one | Find a already liked post, press like button |
-| Follow user | When the follow button is pressed, the user is followed and its post is visible in “plant friends” | Find a user, press follow and view to be sure its posts are visible in plant friends | 
-| Follow user - button change | When the follow button is pressed, it changes to become an unfollow button | Find a user, press follow and watch the button content change |
-| Unfollow user | When the unfollow button is pressed, the user is unfollowed and its post isn’t visible in “plant friends” | Find a user, press unfollow and view to be sure its posts aren’t visible in plant friends | 
-| Unfollow user - button change | When the unfollow button is pressed, it changes to become a follow button | Find a user, press unfollow and watch the button content change |
+| Like post | When the like button is pressed, a like is registered and the number of likes increases by one | Find a post, add one like | Number of likes are increased by one | Pass |
+| Unlike post | When the like button at an already liked post is pressed, the like is taken back and the number of likes decreases by one | Find a already liked post, remove one like | Number of likes are decreased by one | Pass |
+| Follow user | When the follow button is pressed, the user is followed | Find a user, press follow and view number of followers increase by one on that profile | Number of followers are increased by one | Pass |
+| Unfollow user | When a follow is deleted, the number of followers are decreased by one | Find a user that you are following, delete that follow and view number of followers | Number of followers are decreased by one | Pass |
+| Follow user - duplicate | It is not possible to follow a user twice | Try to add a follow to a user who you already is following | A error message indicating a possible duplicate appeared and no new follow is added | Pass |
 
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Post a question | When question and answers are filled out and submit button is pressed, the questions is posted | Write a question, add answers, press submit | 
-| Delete a question | When the user is logged in, they can delete they own questions | Press delete at their own question | 
-| View votes | View number of votes at each answer | Press view result | 
+| Post a question | When question is written, the questions is posted | Write a question, press post | The question is posted | Pass |
+| Delete a question | When the user is logged in, they can delete they own questions | Press delete at their own question | The post is deleted | Pass |
+| Delete a question - not authenticated | When the user is logged in, they cannot delete anyone elses question | Try to press delete at someone elses question | It is not possible to delete someone elses question, the delete button is missing | Pass |
 
 ### Bugs
 
@@ -301,6 +299,8 @@ When all code files were validated in the Python Linter to meet PEP8 standards, 
 The most common error was "Line too long".
 
 These error were corrected and all files (except the settings file, see [Validation of Code](#validation-of-code)) resulted without any errors.
+
+One known bug in the backend is in the answers pathway. You can't add a answer due to it doesn't have a question.id field in the test enviroment, which is required to submit the answer. This is solved in the frontend.
 
 ## Technologies Used
 
@@ -332,8 +332,6 @@ For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. T
 | pytz | Provides timezone definitions for Python, helping to handle datetime objects aware of time zones. |
 | requests-oauthlib | Combines the Requests library with OAuthlib for OAuth1 and OAuth2 sessions. |
 | sqlparse | A non-validating SQL parser module for Python, used to format or decompose SQL queries. |
-
-Detail what technologies you used. So what code languages, what frameworks, libraries, what software did you use to develop the site - Balsamic for your wireframes, Figma for a mockup?
 
 ## Deployment
 
@@ -389,9 +387,10 @@ Link to deployed website: https://greenthumb-back-4bd145d8f205.herokuapp.com/
 
 The project is based at [drf-api from Code Institute](https://github.com/Code-Institute-Solutions/drf-api). The comments app, followers app, likes app, posts app, and profiles app are based but in some cases modified from the mentioned project above.
 
-To get more knowledge, the [Django documentation](https://docs.djangoproject.com/en/5.0/) and [Testing in Django](https://docs.djangoproject.com/en/5.0/topics/testing/) was used.
+To get more knowledge, the [Django documentation](https://docs.djangoproject.com/en/5.0/) and [Testing in Django](https://docs.djangoproject.com/en/5.0/topics/testing/) were used.
 
 ## Acknowledgements
-Any special acknowledgements you'd like to leave
+
+Thanks to Gareth McGirr for showing my project in the right direction. A deep bow to Linus Wikell for proofreading!
 
 [Back to top](#greenthumb-hub---backend)
