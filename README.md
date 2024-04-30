@@ -10,6 +10,35 @@ The project is about creating a social media, a hub, for all gardeners. The purp
 
 ## Table of Contents
 
+- [GreenThumb Hub - Backend](#greenthumb-hub---backend)
+  - [Introduction](#introduction)
+  - [Table of Contents](#table-of-contents)
+  - [User Experience](#user-experience)
+    - [User Goals](#user-goals)
+    - [Site Owner Goals](#site-owner-goals)
+    - [User Stories](#user-stories)
+      - [Epic - User authentication](#epic---user-authentication)
+      - [Epic - User profile management](#epic---user-profile-management)
+      - [Epic - Content management](#epic---content-management)
+      - [Epic - Social interaction](#epic---social-interaction)
+      - [Epic - Participation in polls](#epic---participation-in-polls)
+  - [Design](#design)
+    - [Entity-Relationship Diagram - ERD](#entity-relationship-diagram---erd)
+  - [Testing](#testing)
+    - [Validation of Code](#validation-of-code)
+    - [Automated Testing](#automated-testing)
+    - [Manual Testing](#manual-testing)
+    - [Bugs](#bugs)
+  - [Technologies Used](#technologies-used)
+    - [Packages used](#packages-used)
+  - [Deployment](#deployment)
+    - [Fork repository in GitHub](#fork-repository-in-github)
+    - [Clone repository in GitHub](#clone-repository-in-github)
+    - [Deployment to Heroku](#deployment-to-heroku)
+  - [Credits](#credits)
+  - [Acknowledgements](#acknowledgements)
+
+
 ## User Experience
 
 ### User Goals
@@ -391,6 +420,6 @@ To get more knowledge, the [Django documentation](https://docs.djangoproject.com
 
 ## Acknowledgements
 
-Thanks to Gareth McGirr for showing my project in the right direction. A deep bow to Linus Wikell for proofreading!
+Thanks to Gareth McGirr for pointing my project in the right direction. A deep bow to Linus Wikell for proofreading!
 
 [Back to top](#greenthumb-hub---backend)
