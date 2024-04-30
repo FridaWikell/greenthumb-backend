@@ -28,6 +28,12 @@ The project is about creating a social media, a hub, for all gardeners. The purp
     - [Validation of Code](#validation-of-code)
     - [Automated Testing](#automated-testing)
     - [Manual Testing](#manual-testing)
+      - [Sign in / Sign up](#sign-in--sign-up)
+      - [Update profile information](#update-profile-information)
+      - [Upload post](#upload-post)
+      - [Comments](#comments)
+      - [Likes and followers](#likes-and-followers)
+      - [Questions](#questions)
     - [Bugs](#bugs)
   - [Technologies Used](#technologies-used)
     - [Packages used](#packages-used)
@@ -279,7 +285,7 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 
 ### Manual Testing
 
-**Sign in / Sign up**
+#### Sign in / Sign up
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
@@ -289,7 +295,7 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Password change | Password updates when the same password is entered twice | Enter new password and confirm the password in change password form | Password got changed | Pass |
 | Password change - fail | Password doesn’t updates if you don’t write the same password twice in change password form | Enter password which aren't identical | The password didn't get changed | Pass |
 
-**Update profile information**
+#### Update profile information
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
@@ -297,7 +303,7 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Update username | The username is changed when save is pressed | Change username, check username | Username is changed | Pass |
 | Update username - fail | Username doesn’t update when the user tries to update to a username already in use | Try to update username to an username already in use | Username isn't updated | Pass |
 
-**Upload post**
+#### Upload post
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
@@ -306,7 +312,7 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Error message for large images | When an image over 2 MB is uploaded, an error message is shown | Upload a large image, over 2 MB in size | An error message is triggered | Pass |
 | Change image before creating post | When an image is uploaded, the user can change the image and upload a new image before submitting the post | Upload an image, change image and upload a new | The newest image is uploaded in the post | Pass |
 
-**Comments**
+#### Comments
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
@@ -317,7 +323,7 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Delete a comment | When a comment written by the logged in user is visited, you can delete it | Visit a comment written by the logged in user, delete the comment | The published comment is deleted | Pass |
 | Delete a comment - not the owner | When a comment not written by the logged in user is visited, you cannot delete it | Visit a comment not written by the logged in user, try to delete it | The delete button is not visible, making it impossible to delete the comment | Pass |
 
-**Likes and followers**
+#### Likes and followers
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
@@ -327,7 +333,7 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Unfollow user | When a follow is deleted, the number of followers are decreased by one | Find a user that you are following, delete that follow and view number of followers | Number of followers are decreased by one | Pass |
 | Follow user - duplicate | It is not possible to follow a user twice | Try to add a follow to a user who you already is following | A error message indicating a possible duplicate appeared and no new follow is added | Pass |
 
-**Questions**
+#### Questions
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
