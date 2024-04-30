@@ -68,7 +68,7 @@ All user stories are labeled with must have, should have, could have or won't ha
 | Could have | 4 p | 9 % |
 | Won't have | 8 p | 18 % |
 
-#### [Epic - User authentication](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60174807)  
+#### [Epic - User authentication](https://github.com/FridaWikell/greenthumb-backend/issues/1)  
 As a new or returning user, I would like to securely log in or change my password, so that I can access my personalized account securely and maintain my privacy.
 
 **User story - User login**
@@ -109,7 +109,7 @@ Given a user is logged in and navigates to the password change endpoint,
 When they submit an incorrect current password or invalid new password,  
 Then the system should deny the change and display an error message.  
 
-#### [Epic - User profile management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60175794)  
+#### [Epic - User profile management](https://github.com/FridaWikell/greenthumb-backend/issues/4)  
 As a registered user, I would like to update my profile information including my profile image and username, so that my profile reflects my current preferences and identity.
 
 **User story - Update profile image**
@@ -134,7 +134,7 @@ Given the user is logged in and at the update username endpoint,
 When they input a new username,  
 Then the system should update the username  
 
-#### [Epic - Content management](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60177794)  
+#### [Epic - Content management](https://github.com/FridaWikell/greenthumb-backend/issues/7)  
 As a user, I would like to publish and manage posts with text and images, so that I can share and express my thoughts, experiences, and creative content with the community.
 
 **User Story - Publish posts with images**
@@ -152,7 +152,7 @@ Given an image file is too large or of an unsupported format,
 When the user attempts to attach it with the post,  
 Then the system should reject the file and provide an error message detailing file size or format restrictions.  
 
-#### [Epic - Social interaction](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60178790)  
+#### [Epic - Social interaction](https://github.com/FridaWikell/greenthumb-backend/issues/9)  
 As a user, I would like to interact with other users' content through likes and follow their profiles, so that I can engage with the community and stay updated on content from users I am interested in.
 
 **User Story - Like posts**
@@ -185,7 +185,8 @@ Given a user is already following another user,
 When they click the unfollow button,  
 Then the system should remove that user to their following list.  
 
-#### [Epic - Participation in polls](https://github.com/users/FridaWikell/projects/7/views/1?pane=issue&itemId=60180110)  
+#### [Epic - Participation in polls](https://github.com/FridaWikell/greenthumb-backend/issues/12)  
+
 As a user, I would like to participate in polls, so that I can express my opinions and engage with interactive content on the platform.
 
 **User Story - Participate in polls**
