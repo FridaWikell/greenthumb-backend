@@ -429,6 +429,9 @@ For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. T
 - In key, write SECRET_KEY
 - In value, insert the secret key from the Django settings
 - Press "Add"
+- In key, write DISABLE_COLLECTSTATIC
+- In value, write "1"
+- Press "Add"
 - Under "Buildpacks", press "Add buildpack"
 - Choose "Python", press "Add buildpack"
 - Change tab to the Deploy tab
@@ -436,6 +439,13 @@ For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. T
 - Search for the correct repository name at your connected GitHub account
 - Press "Connect"
 - Under "Manual deploy", choose which branch to deploy and press "Deploy Branch"
+
+When the frontend is deployed, following steps are done:
+- Choose Settings tab
+- Under "Config Vars", press "Reveal Config Vars"
+- In key, write CLIENT_ORIGIN
+- In value, insert the link to the deployed frontend
+- Press "Add"
 
 Link to deployed website: https://greenthumb-back-4bd145d8f205.herokuapp.com/
 
