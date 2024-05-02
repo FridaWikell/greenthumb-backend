@@ -360,7 +360,7 @@ One known bug in the backend is in the answers pathway. You can't add a answer d
 
 ## Technologies Used
 
-The repository is created from [Code Institutes Gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template) through [GitHub](https://github.com/). All code is written in [Gitpod](https://www.gitpod.io/) and deployed at [Heroku](https://www.heroku.com). The code language used is [Python](https://www.python.org/) with Django framework. To build RESTful APIs, Django REST is used. 
+The repository is created from [Code Institutes Gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template) through [GitHub](https://github.com/). All code is written in [Gitpod](https://www.gitpod.io/) and deployed at [Heroku](https://www.heroku.com). The code language used is [Python](https://www.python.org/) with Django framework. To build RESTful APIs, Django REST is used. To generate the secret key, [Djecrety](https://djecrety.ir/) was used.
 
 The database used is [ElephantSQL](https://www.elephantsql.com/). All images are stored at [Cloudinary](https://cloudinary.com/).
 
