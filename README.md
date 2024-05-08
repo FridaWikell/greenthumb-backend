@@ -1,6 +1,6 @@
 # GreenThumb Hub - Backend
 
-![image of site](link to image) - use an image from AmIResponsive that shows the site on multiple devices
+![Screenshot of GreenThumb Hub site on multiple devices](doc/amiresponsive.webp)
 
 ## Introduction
 
