@@ -238,6 +238,12 @@ The ERD’s for the project is presented below.
 
 ![Screenshot of the ERD of Vote class](doc/erd-vote.webp)
 
+**ERD - connections**
+
+To easily see the connection between the classes, it is presented below. The auth class is in the diagram since the profile is based at it.
+
+![Screenshot of all classes together](doc/erd-beaver-auth.webp)
+
 ## Testing
 
 ### Validation of Code
@@ -364,7 +370,7 @@ The repository is created from [Code Institutes Gitpod full template](https://gi
 
 The database used is [ElephantSQL](https://www.elephantsql.com/). All images are stored at [Cloudinary](https://cloudinary.com/).
 
-For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. The first image at the [top of the readme](#greenthumb-hub---backend) was made by [Am I Responsive?](https://ui.dev/amiresponsive). To convert the screenshots to webp file format, [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) is used.
+For the ERD's, [Google Spreadsheet](https://spreadsheets.google.com/) is used. The ERD with all connections is made in [DBeaver](https://dbeaver.io/). The first image at the [top of the readme](#greenthumb-hub---backend) was made by [Am I Responsive?](https://ui.dev/amiresponsive). To convert the screenshots to webp file format, [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) is used.
 
 ### Packages used
 
