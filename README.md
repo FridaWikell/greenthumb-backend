@@ -57,7 +57,7 @@ The site owner goal is to provide a place where the green fingers can grow and c
 
 ### User Stories
 
-A total of five epics and eight user stories were created. To view all epics and user stories for the backend are collected at a project board [here](https://github.com/users/FridaWikell/projects/7).
+A total of five epics and eight user stories were created. To view all epics and user stories for the backend, they are collected at a project board [here](https://github.com/users/FridaWikell/projects/7).
 
 All user stories are labeled with must have, should have, could have or won't have, depending on prioritization according to MoSCoW prioritization. Each of all user stories are also labeled with a point. The point is an estimate in how long time it will take to finish the acceptance criterias in the user story. All acceptance criterias are presented in each user story at the project board.
 
@@ -240,7 +240,7 @@ The ERD’s for the project is presented below.
 
 **ERD - connections**
 
-To easily see the connection between the classes, it is presented below. The auth class is in the diagram since the profile is based at it.
+To easily see the connection between the classes, it is presented below. The auth class is in the diagram since the profile is based on it.
 
 ![Screenshot of all classes together](doc/erd-beaver-auth.webp)
 
@@ -299,8 +299,6 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Sign up | New user gets signed up | Enter requested information in sign up form | A new user got signed up | Pass |
 | Sign up with same username | User can’t sign up when they try username already in use | Try to sign up with a username already in use | The user can't sign up with a username already in use | Pass |
 | Log in | User gets logged in with correct user credentials | Enter valid user information | User gets logged in | Pass |
-| Password change | Password updates when the same password is entered twice | Enter new password and confirm the password in change password form | Password got changed | Pass |
-| Password change - fail | Password doesn’t updates if you don’t write the same password twice in change password form | Enter password which aren't identical | The password didn't get changed | Pass |
 
 #### Update profile information
 
@@ -308,13 +306,13 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
 | Change profile image | The profile image is changed when save is pressed | Change profile image, check profile image | Profile image is changed | Pass |
 | Update username | The username is changed when save is pressed | Change username, check username | Username is changed | Pass |
-| Update username - fail | Username doesn’t update when the user tries to update to a username already in use | Try to update username to an username already in use | Username isn't updated | Pass |
+| Update username - fail | Username doesn’t update when the user tries to update to a username already in use | Try to update username to a username already in use | Username isn't updated | Pass |
 
 #### Upload post
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Upload a post with an image | The post is submitted when an image, text and content is applied | Add a post with image, title, content and hardiness zone | The post is submitted | Pass |
+| Upload a post with an image | The post is submitted when image, text, content and hardiness zone are applied | Add a post with image, title, content and hardiness zone | The post is submitted | Pass |
 | Upload a post without an image | The post is submitted when text, content and hardiness zone are applied | Add a post with title, content and hardiness zone | The post is submitted | Pass | 
 | Error message for large images | When an image over 2 MB is uploaded, an error message is shown | Upload a large image, over 2 MB in size | An error message is triggered | Pass |
 | Change image before creating post | When an image is uploaded, the user can change the image and upload a new image before submitting the post | Upload an image, change image and upload a new | The newest image is uploaded in the post | Pass |
@@ -323,7 +321,7 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Post a comment | When text is entered in comment field and post is pressed, the comment is published | Write a comment, press Post | A comment is published | Pass |
+| Post a comment | When text is entered in comment field and Post is pressed, the comment is published | Write a comment, press Post | A comment is published | Pass |
 | Post a comment - blank comment | The comment should not be published when no text is entered | Leave comment field empty, press Post | A comment is not published, an error is displayed: "This field may not be blank." | Pass |
 | Edit a comment | When a comment written by the logged in user is visited, you can edit it | Visit a comment written by the logged in user, edit the comment and press Put | The published comment is edited | Pass |
 | Edit a comment - not the owner | When a comment not written by the logged in user is visited, you cannot edit it | Visit a comment not written by the logged in user, try to edit it | The edit field is not visible, making it impossible to edit the comment | Pass |
@@ -335,17 +333,17 @@ A total of 34 tests were written for all apps. Below, the sum for each app is pr
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
 | Like post | When the like button is pressed, a like is registered and the number of likes increases by one | Find a post, add one like | Number of likes are increased by one | Pass |
-| Unlike post | When the like button at an already liked post is pressed, the like is taken back and the number of likes decreases by one | Find a already liked post, remove one like | Number of likes are decreased by one | Pass |
+| Unlike post | When the like button at an already liked post is pressed, the like is withdrawn and the number of likes decreases by one | Find an already liked post, remove one like | Number of likes are decreased by one | Pass |
 | Follow user | When the follow button is pressed, the user is followed | Find a user, press follow and view number of followers increase by one on that profile | Number of followers are increased by one | Pass |
 | Unfollow user | When a follow is deleted, the number of followers are decreased by one | Find a user that you are following, delete that follow and view number of followers | Number of followers are decreased by one | Pass |
-| Follow user - duplicate | It is not possible to follow a user twice | Try to add a follow to a user who you already is following | A error message indicating a possible duplicate appeared and no new follow is added | Pass |
+| Follow user - duplicate | It is not possible to follow a user twice | Try to add a follow to a user who you already is following | An error message indicating a possible duplicate appeared and no new follow is added | Pass |
 
 #### Questions
 
 | Feature being tested | Expected Outcome | Testing Performed | Actual Outcome | Result (Pass or fail) |
 | -------------------- | ---------------- | ----------------- | -------------- | --------------------- |
-| Post a question | When question is written, the questions is posted | Write a question, press post | The question is posted | Pass |
-| Delete a question | When the user is logged in, they can delete they own questions | Press delete at their own question | The post is deleted | Pass |
+| Post a question | When a question is written, the question is posted | Write a question, press Post | The question is posted | Pass |
+| Delete a question | When the user is logged in, they can delete their own questions | Press delete at their own question | The post is deleted | Pass |
 | Delete a question - not authenticated | When the user is logged in, they cannot delete anyone elses question | Try to press delete at someone elses question | It is not possible to delete someone elses question, the delete button is missing | Pass |
 
 ### Bugs
@@ -360,13 +358,13 @@ When all code files were validated in the Python Linter to meet PEP8 standards, 
 
 The most common error was "Line too long".
 
-These error were corrected and all files (except the settings file, see [Validation of Code](#validation-of-code)) resulted without any errors.
+These errors were corrected and all files (except the settings file, see [Validation of Code](#validation-of-code)) resulted without any errors.
 
-One known bug in the backend is in the answers pathway. You can't add a answer due to it doesn't have a question.id field in the test enviroment, which is required to submit the answer. This is solved in the frontend.
+One known bug in the backend is in the answers pathway. You can't add an answer since it doesn't have a question.id field in the test enviroment, which is required to submit the answer. This is solved in the frontend.
 
 ## Technologies Used
 
-The repository is created from [Code Institutes Gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template) through [GitHub](https://github.com/). All code is written in [Gitpod](https://www.gitpod.io/) and deployed at [Heroku](https://www.heroku.com). The code language used is [Python](https://www.python.org/) with Django framework. To build RESTful APIs, Django REST is used. To generate the secret key, [Djecrety](https://djecrety.ir/) was used.
+The repository is created from [Code Institutes Gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template) through [GitHub](https://github.com/). All code is written in [Gitpod](https://www.gitpod.io/) and deployed at [Heroku](https://www.heroku.com). The code language used is [Python](https://www.python.org/) with Django framework. To build RESTful APIs, [Django REST](https://www.django-rest-framework.org/) is used. To generate the secret key, [Djecrety](https://djecrety.ir/) was used.
 
 The database used is [ElephantSQL](https://www.elephantsql.com/). All images are stored at [Cloudinary](https://cloudinary.com/).
 
@@ -459,7 +457,7 @@ Link to deployed website: https://greenthumb-back-4bd145d8f205.herokuapp.com/
 
 ## Credits
 
-The project is based at [drf-api from Code Institute](https://github.com/Code-Institute-Solutions/drf-api). The comments app, followers app, likes app, posts app, and profiles app are based but in some cases modified from the mentioned project above.
+The project is based on [drf-api from Code Institute](https://github.com/Code-Institute-Solutions/drf-api). The comments app, followers app, likes app, posts app, and profiles app are based, but in some cases modified, from the mentioned project above.
 
 To get more knowledge, the [Django documentation](https://docs.djangoproject.com/en/5.0/) and [Testing in Django](https://docs.djangoproject.com/en/5.0/topics/testing/) were used.
 
